@@ -28,3 +28,6 @@ foreach (Customer customerIter in crmService2.GetAll())
     Console.WriteLine($"Name = {customerIter.Name}  Address = {customerIter.Address}");
 };
 
+Console.WriteLine("------------------------");
+
+
