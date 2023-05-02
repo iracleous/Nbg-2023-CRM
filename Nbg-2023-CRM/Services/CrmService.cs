@@ -10,23 +10,25 @@ namespace Nbg_2023_CRM.Services
 {
     public class CrmService:ICrmService
     {
-        private readonly ICustomerRepository _crmRepository;
+        private readonly IRepository<Customer> _crmRepository;
       
 
-         public CrmService(ICustomerRepository crmRepository)
+         public CrmService(IRepository<Customer> crmRepository)
          {
            _crmRepository = crmRepository;
        }
 
         public Customer CreateCustomer(Customer customer)
         {
-            _crmRepository.CreateCustomer(customer);
+            _crmRepository.Create(customer);
             return customer;
         }
 
         public List<Customer> GetAll()
         {
-           return _crmRepository.ReadAllCustomers().ToList();
+           return _crmRepository
+                .ReadAll()
+                .ToList();
         }
     }
 }
